@@ -1,4 +1,4 @@
 # .gitignore
 #files here are ignored
-node_modules/
+node_modules
 test.md

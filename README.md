@@ -2,7 +2,7 @@
 >This is a to-do list site that makes use of Loalstorage and Drag and Drop API
 
 
-**<div align="center"><a href="https://fobadara.github.io/to-do-list/" text="bold">Live Demo</a></div>**
+**<div align="center"><a href="https://fobadara.github.io/to-do-list/dist/" text="bold">Live Demo</a></div>**
 
 ## Description
 
@@ -24,13 +24,15 @@ The application is built using basic principles of Object Oriente Programming an
 
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
-![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) 
+
+**WEBPACK**
 
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
 
-⬜ clone the app by running this command `git clone https://github.com/fobadara/to-do-list`
+⬜ clone the app by running this command `git clone https://github.com/fobadara/to-do-list/dist/`
 
 ⬜ Run this command `cd to-do-list`
 

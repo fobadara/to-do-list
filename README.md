@@ -12,7 +12,7 @@ It uses the Local Storage API to ensure your data is alwways present whenever yo
 
 It also uses the Drag and Drop API so that you can easily switch the order of tasks.
 
-The application is built using basic principles of Object Oriente Programming and MVC design pattern.
+The application is built using basic principles of Object Oriented Programming and MVC design pattern.
 
 **Built With :hammer:**
 

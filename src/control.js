@@ -9,7 +9,6 @@ class Control {
   }
 
   init() {
-    // initialize model update
     this.view.display(this.model.tasks);
   }
 }

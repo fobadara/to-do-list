@@ -2,6 +2,7 @@ import './style.css';
 import View from './view.js';
 import Model from './model.js';
 
+
 class Control {
   constructor(view) {
     this.model = new Model();

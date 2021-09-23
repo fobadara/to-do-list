@@ -62,7 +62,7 @@ input:hover {
 }
 
 .search-cont {
-  border-bottom: solid thin black;
+  border-bottom: solid thin rgb(10, 10, 10);
   margin-bottom: 0;
   padding: 0.1em 0;
   font-size: xx-large;

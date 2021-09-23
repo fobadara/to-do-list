@@ -57,10 +57,6 @@ input:hover {
   color: rgba(0, 0, 0, 0.5);
 }
 
-* {
-  border-color: #fff;
-}
-
 .items-cont {
   background-color: #fff;
 }

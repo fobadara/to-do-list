@@ -13,7 +13,7 @@ export default class View {
       this.checkbox.setAttribute('type', 'checkbox');
       this.checkbox.classList.add('no-fluid');
       this.input = document.createElement('input');
-      this.input.style.cssText = 'border: none;'
+      this.input.style.cssText = 'border: none;';
       this.input.setAttribute('type', 'text');
       this.input.setAttribute('readonly', true);
       this.input.setAttribute('draggable', true);

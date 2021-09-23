@@ -58,7 +58,7 @@ input:hover {
 }
 
 * {
-  border: none;
+  border-color: #fff;
 }
 
 .items-cont {

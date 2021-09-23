@@ -70,6 +70,7 @@ input:hover {
 
 .search-cont * {
   font-style: italic;
+  border: none;
 }
 
 .search-cont input {

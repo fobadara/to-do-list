@@ -1,15 +1,13 @@
-/* Todo: add textadjust html
-  Todo: body backgroud grey
-*/
 html {
   text-size-adjust: 100%;
 }
+
 body {
   background-color: rgb(238, 236, 236);
 }
 
 .no-fluid {
-  padding-left: 0.5em;
+  padding-left: 0.6em;
   padding-right: 0.5em;
 }
 
@@ -24,29 +22,24 @@ input[type="text"] {
   margin-bottom: 0;
 }
 
-* {
-  /* border: solid gold; */
-}
-
 input:active,
 input:hover {
   outline: none;
   border: none;
 }
 
-/*  Todo: add border amd boxshadowto container*/
-/* Todo: make section 80% and margin auto width */
 .outter-cont {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 .container {
   width: 80%;
   margin: auto;
-  border: solid thin;
-  box-shadow: 0 0 8px 5px rgb(180, 178, 178);
+  border-radius: 0.5em;
+  box-shadow: 0 0 8px 10px rgb(180, 178, 178);
 }
 
 .head-cont {
@@ -80,7 +73,7 @@ input:hover {
 .search-cont input {
   padding-left: 0.5em;
 }
-/* Todo: list marginbottom 0, border bottom, display flex, justify spacebetween */
+
 .row {
   margin-bottom: 0;
   font-size: xx-large;
@@ -90,6 +83,7 @@ input:hover {
   align-items: center;
   border-bottom: solid thin;
 }
+
 .bin {
   display: none;
 }
@@ -111,9 +105,10 @@ input:hover {
   padding: 0.7em;
   border: none;
   background: none;
+  font-size: x-large;
+  color: rgba(0, 0, 0, 0.5);
 }
 
-/* Todo: button width 100 */
 footer {
   width: 80%;
   position: fixed;
@@ -123,4 +118,8 @@ footer {
 footer p {
   width: 80%;
   margin: auto;
+}
+
+footer a {
+  text-decoration: none;
 }

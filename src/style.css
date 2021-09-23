@@ -68,7 +68,7 @@ input:hover {
   font-size: xx-large;
 }
 
-.search-cont * {
+.search-cont input {
   font-style: italic;
   border: none;
   outline: none;

@@ -1,39 +1,42 @@
-## My Portfolio Site
+# T0-Do List
+>This is a to-do list site that makes use of Loalstorage and Drag and Drop API
 
-This is a portfolio site inspired by figma
 
-![screenshot](images/shot1.png)
-![screenshot](images/shot2.png)
-![screenshot](images/shot3.png)
-![screenshot](images/shot4.png)
+**<div align="center"><a href="https://fobadara.github.io/to-do-list/" text="bold">Live Demo</a></div>**
 
-# <div align="center"><a href="https://fobadara.github.io/my-portfolio-site-2/" text="bold">Live Demo</a></div>
+## Description
 
-# Description
+This site is brought to life by basic CRUD operation. It adds, edits, deletes and removes tasks from your list. 
 
-![screenshot](images/portfolio2.gif)
+It uses the Local Storage API to ensure your data is alwways present whenever you open it up.
 
-> A site showing some of my best works structured beautifully. This site is fully responsive and compatible to all screen sizes and all device. A combination of flexbox and grid are used to bring this site to life. It is divided into a navigation section, an homepage section, a work section, an about section and a footer section.
+It also uses the Drag and Drop API so that you can easily switch the order of tasks.
 
-# Built With :hammer:
+The application is built using basic principles of Object Oriente Programming and MVC design pattern.
 
-● HTML
+**Built With :hammer:**
 
-● CSS
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) 
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
-● Linters
+**Tools**
 
-# Getting Started
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+
+## Getting Started
 
 To get a local copy up and running follow these simple example steps.
 
-⬜ clone the app by running this command `git clone https://github.com/fobadara/my-portfolio-site-2.git`
+⬜ clone the app by running this command `git clone https://github.com/fobadara/to-do-list`
 
-⬜ Run this command `cd my-portfolio-site-2`
+⬜ Run this command `cd to-do-list`
 
 ⬜ Open in browser
 
-# Prerequisites
+**Prerequisites**
 
 You will be needing:
 
@@ -41,7 +44,7 @@ You will be needing:
 
 ⬜ A text editor or terminal
 
-# Run tests
+**Run tests**
 
 You can run tests by following these steps:
 
@@ -51,30 +54,30 @@ You can run tests by following these steps:
 
 ⬜ I have created a pull request which runs linters or you could simply create a pull rrequest of your own
 
-# Authors
+**Authors**
 
 👤 Abdulfatai Badara
 
-GitHub: github.com/fobadara
+GitHub: [github.com/fobadara](github.com/fobadara)
 
-Twitter: fob90s@twitter.com
+Twitter: [fob90s@twitter.com](fob90s@twitter.com)
 
-# 🤝 Contributing
+**🤝 Contributing**
 
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the issues page.
 
-# Show your support
+**Show your support**
 
 Give a ⭐️ if you like this project!
 
-# Acknowledgments
+**Acknowledgments**
 
 Hat tip to anyone whose code was used
 
 Lots of appreciations to my wife, Habeebah who keeps supporting me
 
-# 📝 License
+**📝 License**
 
 This project is licensed by [MIT](LICENSE)

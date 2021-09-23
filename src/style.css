@@ -72,9 +72,6 @@ input:hover {
   font-style: italic;
   border: none;
   outline: none;
-}
-
-.search-cont input {
   padding-left: 0.5em;
 }
 

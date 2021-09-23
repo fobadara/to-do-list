@@ -31,4 +31,3 @@ class Control {
 
 const control = new Control(new View());
 control.init();
-

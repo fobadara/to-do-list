@@ -29,8 +29,8 @@ export default class View {
         this.textarea.setAttribute('draggable', true);
         this.textarea.setAttribute('required', true);
         if (currentItem.bool) {
-          this.textarea.style.textDecoration = 'line-through'          
-        }else{
+          this.textarea.style.textDecoration = 'line-through'
+        } else {
           this.checkbox.style.textDecoration = 'none';
         }
         console.log(currentItem.bool)
@@ -38,7 +38,7 @@ export default class View {
         this.textarea.classList.add('string');
         this.button = document.createElement('button');
         this.button.style.display = 'none';
-       
+
         this.more = document.createElement('span');
         this.more.classList = 'more';
         this.more.dataset.data = 'rmv';
@@ -51,7 +51,7 @@ export default class View {
         this.checkbox.classList.add('click');
         this.bin.classList.add('no-fluid');
 
-        this.rowForm.append(this.textarea,  this.button);
+        this.rowForm.append(this.textarea, this.button);
         this.div.append(this.checkbox, this.rowForm, this.more, this.bin);
         this.fragment.appendChild(this.div);
       });

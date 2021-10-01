@@ -48,7 +48,7 @@ class Control {
         this.model.changeStatusValue(this.textarea.parentElement.parentElement.id, this.textarea.value);
       }
     })
-    }
+  }
 
   handleCheckEvent = (event) => {
     this.model.toggleTodo(event);

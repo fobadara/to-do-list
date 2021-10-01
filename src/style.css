@@ -3,6 +3,7 @@ html {
 }
 
 body {
+  background-color: rgb(248, 239, 169);
   background-color: rgb(238, 236, 236);
 }
 
@@ -11,21 +12,22 @@ body {
   padding-right: 0.5em;
 }
 
-input {
+input,
+textarea {
   border: none;
   outline: none;
   font-size: 19px;
 }
 
-input[type="text"] {
-  width: 80%;
+.string {
+  width: 99%;
   background: none;
   border: none;
-  margin-bottom: 0;
+  padding-top: 1.5em;
 }
 
-input:active,
-input:hover {
+textarea:active,
+textarea:hover {
   outline: none;
   border: none;
 }

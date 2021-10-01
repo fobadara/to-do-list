@@ -1,0 +1,67 @@
+import View from './view.js';
+import Model from './model.js';
+
+export default class Checkbox {
+  constructor() {
+    this.view =  new View();
+    this.model = new Model();
+    console.log(this.view, this.model);
+  }
+
+  getObjects = (tasks) => {
+    this.tasks = tasks;
+  }
+
+    strike = (event) => {
+      this.status = event.target.checked;      
+      this.string = event.target.nextElementSibling.firstElementChild;
+      for(let i = 0;  i < this.tasks.length; i += 1) {
+        if(this.status) {
+          // event.target.checked = true;
+          this.tasks[i].bool = true;
+          this.string.style.textDecoration = 'line-through';
+        }else{
+          // event.target.checked = false;
+          this.tasks[i].bool = false;
+          this.string.style.textDecoration = 'none';        
+        }
+      }
+      
+      // console.log(display)
+      // console.log(tasks)
+    // display(tasks); 
+    // location.reload()
+    // console.log(this.tasks);
+    localStorage.setItem('todos',  JSON.stringify(this.tasks));    
+    }
+      
+      // this.checkboxes = document.querySelectorAll('.checkbox');
+      // this.string = event.target.nextElementSibling;
+      
+    //   this.model.tasks.forEach(currentItem => {
+    //     console.log('a');
+    //     if (currentItem.tasks.bool) {
+    //       this.string.style.textDecoration = 'line-through'; 
+    //     }else {
+    //       this.string.style.textDecoration = 'none';
+    //     }
+    //   })
+    // }
+  }
+  
+  
+    // this.checkboxes = document.querySelectorAll('.checkbox');
+    // this.string = event.target.nextElementSibling;
+    
+  //   this.model.tasks.forEach(currentItem => {
+  //     console.log('a');
+  //     if (currentItem.tasks.bool) {
+  //       this.string.style.textDecoration = 'line-through'; 
+  //     }else {
+  //       this.string.style.textDecoration = 'none';
+  //     }
+  //   })
+  // }
+
+
+// const checkBox = new Checkbox(new View(), new Model());

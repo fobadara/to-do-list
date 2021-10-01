@@ -4,6 +4,7 @@
   "description": ">This is a to-do list site that makes use of Loalstorage and Drag and Drop API",
   "main": "server.js",
   "dependencies": {
+    "eslint-config-airbnb": "^18.2.1",
     "webpack": "^5.54.0"
   },
   "devDependencies": {

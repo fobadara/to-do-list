@@ -1,21 +1,6 @@
-//Todo: import from control
-
-//Todo: create and export view class 
-//Todo: add populateList to consructor
-//Todo: get ul from index
-//Todo: append populatelist to ul
-
-//Todo: create metho
-
-//Todo: create drag and dop method
-
-//Todo: method to put dach when checkbox is clicked 
-
-//Todo: method to erase clicked
 export default class View {
   constructor() {
     this.list = document.querySelector('.items');
-    // this.children = this.list.children;
     this.fragment = new DocumentFragment();
     this.number = 0;
   }
@@ -26,10 +11,6 @@ export default class View {
       tasks.forEach((currentItem) => {
         this.div = document.createElement('div');
         this.div.classList.add('row');
-        // create id
-        // let idValue = () => {
-        //   return  (currentItem.number)? currentItem.number :;
-        // }
         console.log(this.number);
         this.div.setAttribute('id', `${this.number}`);
         this.number += 1;
@@ -47,17 +28,10 @@ export default class View {
         this.textarea.setAttribute('readonly', true);
         this.textarea.setAttribute('draggable', true);
         this.textarea.setAttribute('required', true);
-         
-        //  Add  strikethrough to sring
-        // console.log(currentItem.bool);
-        // console.log(c)
         if (currentItem.bool) {
-          this.textarea.style.textDecoration = 'line-through'
-          // this.checkbox.checked = true;
-          
+          this.textarea.style.textDecoration = 'line-through'          
         }else{
           this.checkbox.style.textDecoration = 'none';
-          // this.checkbox.checked = false;
         }
         console.log(currentItem.bool)
         this.textarea.value = `${currentItem.string}`;
@@ -68,7 +42,6 @@ export default class View {
         this.more = document.createElement('span');
         this.more.classList = 'more';
         this.more.dataset.data = 'rmv';
-        // this.checkbox.classList.add('click');
         this.more.innerHTML = '&#65049;';
 
         this.bin = document.createElement('span');
@@ -101,7 +74,6 @@ export default class View {
   }
 
   listenToCheckBox = (handler) => {
-    // console.log(handler)
     this.body = document.querySelector('body');
     this.body.addEventListener('change', (event) => {
       (event.target.type === 'checkbox') ? handler(event) : '';
@@ -130,6 +102,5 @@ export default class View {
         (this.data === this.clickedData) ? handler(event) : '';
       });
     })
-    // this.data = this.more.dataset.data
   }
 }

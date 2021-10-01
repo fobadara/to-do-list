@@ -8,7 +8,6 @@ class Control {
     this.model = model;
     this.view = view;
     this.checkbox = checkbox;
-    // this.model.handleGetDisplay(this.view.display);
     this.model.bindChange(this.handleChange);
     this.handleChange(this.model.tasks);
     this.view.getSearchValue(this.handleAddEvent);
@@ -34,10 +33,7 @@ class Control {
 
     // Make row editable
     this.textarea = event.target.previousElementSibling.firstElementChild;
-    // console.log(this.textarea)
     this.textarea.readOnly = false;
-    // console.log(this.textarea)    
-
 
     // Change background-color
     this.parent = event.target.parentElement;
@@ -52,17 +48,11 @@ class Control {
         this.model.changeStatusValue(this.textarea.parentElement.parentElement.id, this.textarea.value);
       }
     })
-    // this.body.removeEventListener('keypress', this.passVal = (event) => {
-    //   if (event.key === 'Enter') {
-    //     return true;
-    //   }
-    // })
-  }
-  
+    }
+
   handleCheckEvent = (event) => {
     this.model.toggleTodo(event);
     this.checkbox.strike(event);
-    // this.view.display(this.model.tasks);
   }
 
   passRemoveBtn = (event) => {
@@ -72,25 +62,20 @@ class Control {
   }
 
 
- handleCompleted = () => {
+  handleCompleted = () => {
     this.clear = document.querySelector('.clear');
     this.row = document.querySelectorAll('textarea');
-    // console.log(this.row);
-    this.clear.addEventListener('click',  () => {
-    this.row.forEach((currentItem, index) => {
-      console.log(currentItem.parentElement.parentElement.id, this.model.tasks)
-      if(this.model.tasks.number === currentItem.parentElement.parentElement.id) {
-        this.model.tasks.splice(index, 1);
-      }
-      localStorage.setItem('todos', JSON.stringify(this.model.tasks))
+    this.clear.addEventListener('click', () => {
+      this.row.forEach((currentItem, index) => {
+        console.log(currentItem.parentElement.parentElement.id, this.model.tasks)
+        if (this.model.tasks.number === currentItem.parentElement.parentElement.id) {
+          this.model.tasks.splice(index, 1);
+        }
+        localStorage.setItem('todos', JSON.stringify(this.model.tasks))
+      })
+      this.view.display(this.model.tasks);
     })
-    this.view.display(this.model.tasks);
-   })     
-}
+  }
 }
 
 const control = new Control(new View(), new Model(), new Checkbox());
-// window.addEventListener('change', control.init());
-
-// let form = document.querySelector('form');
-// form.addEventListener('change', control.init());

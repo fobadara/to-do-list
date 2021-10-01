@@ -3,11 +3,6 @@ export default class Model {
     this.tasks =  JSON.parse(localStorage.getItem('todos')) || [ ];
   }
 
-  // getStorage() {
-  //   this.store = JSON.parse(localStorage.getItem('todos'))  
-  //   console.log(this.store);
-  // }
-
   setStorage = (todos) => {
     // this.tasks.forEach(element => {
       localStorage.setItem('todos',  JSON.stringify(todos));      
@@ -16,7 +11,6 @@ export default class Model {
 
   bindChange=(callback) => {
    this.change = callback;
-    // handler(this.tasks);
   }
 
   update(tasks) {
@@ -24,8 +18,7 @@ export default class Model {
     this.setStorage(tasks);
   }
 
-  addTodo = (input) => {
-    
+  addTodo = (input) => {    
     this.newArray = {
       string: input,
       bool: this.bool,
@@ -35,10 +28,6 @@ export default class Model {
     this.array = this.tasks.push(this.newArray) ;
       this.update(this.tasks);
     }
-
-  editTodo() {
-
-  }
 
   toggleTodo(event) {
     for(let i = 0; i < this.tasks.length; i+=1){
@@ -71,4 +60,3 @@ export default class Model {
     this.update(this.tasks);
   }
 }
-

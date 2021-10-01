@@ -26,42 +26,5 @@ export default class Checkbox {
           this.string.style.textDecoration = 'none';        
         }
       }
-      
-      // console.log(display)
-      // console.log(tasks)
-    // display(tasks); 
-    // location.reload()
-    // console.log(this.tasks);
-    localStorage.setItem('todos',  JSON.stringify(this.tasks));    
-    }
-      
-      // this.checkboxes = document.querySelectorAll('.checkbox');
-      // this.string = event.target.nextElementSibling;
-      
-    //   this.model.tasks.forEach(currentItem => {
-    //     console.log('a');
-    //     if (currentItem.tasks.bool) {
-    //       this.string.style.textDecoration = 'line-through'; 
-    //     }else {
-    //       this.string.style.textDecoration = 'none';
-    //     }
-    //   })
-    // }
   }
-  
-  
-    // this.checkboxes = document.querySelectorAll('.checkbox');
-    // this.string = event.target.nextElementSibling;
-    
-  //   this.model.tasks.forEach(currentItem => {
-  //     console.log('a');
-  //     if (currentItem.tasks.bool) {
-  //       this.string.style.textDecoration = 'line-through'; 
-  //     }else {
-  //       this.string.style.textDecoration = 'none';
-  //     }
-  //   })
-  // }
-
-
-// const checkBox = new Checkbox(new View(), new Model());
+}

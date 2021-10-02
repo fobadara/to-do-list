@@ -46,9 +46,9 @@ export default class Model {
 
   changeStatusValue(inputNum, input) {
     this.tasks.forEach((currentItem) => {
-        if (currentItem.number === parseInt(inputNum, 10)) {
-          currentItem.string = (input === true) ? input : '';
-        }
+      if (currentItem.number === parseInt(inputNum, 10)) {
+        currentItem.string = (input === true) ? input : '';
+      }
     });
     this.update(this.tasks);
   }

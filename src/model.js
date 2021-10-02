@@ -31,9 +31,12 @@ export default class Model {
 
   toggleTodo = (event) => {
     for (let i = 0; i < this.tasks.length; i += 1) {
-      (event.target.checked === true) ? this.tasks[i].bool = true
-        : this.tasks[i].bool = false;
-      this.update(this.tasks);
+      if (event.target.checked) {
+        this.tasks[i].bool = true
+      } else {
+        this.tasks[i].bool = false;
+        this.update(this.tasks);
+      }
     }
   }
 

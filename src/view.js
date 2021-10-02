@@ -68,13 +68,13 @@ export default class View {
       event.preventDefault();
       handler(this.search.value);
       this.search.value = '';
-    })
+    });
   }
 
   listenToCheckBox = (handler) => {
     this.body = document.querySelector('body');
     this.body.addEventListener('change', (event) => {
-      (event.target.type === 'checkbox') ? handler(event) : '';
+      return (event.target.type === 'checkbox') ? handler(event) : '';
     });
   }
 
@@ -92,12 +92,12 @@ export default class View {
   editList(handler) {
     this.more = document.querySelectorAll('.more');
     this.body = document.querySelector('body');
-    this.more.forEach(currentItem => {
+    this.more.forEach((currentItem) => {
       this.body.addEventListener('click', (event) => {
         this.data = currentItem.dataset.data;
         this.clickedData = event.target.dataset.data;
-        (this.data === this.clickedData) ? handler(event) : '';
+        return (this.data === this.clickedData) ? handler(event) : '';
       });
     });
-  };
+  }
 }

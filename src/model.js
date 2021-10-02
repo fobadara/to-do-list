@@ -22,7 +22,7 @@ export default class Model {
     this.newArray = {
       string: input,
       bool: this.bool,
-      number: (this.tasks.length > 0) ? this.tasks[this.tasks.length - 1].number + 1 : 1
+      number: (this.tasks.length > 0) ? this.tasks[this.tasks.length - 1].number + 1 : 1,
     };
 
     this.array = this.tasks.push(this.newArray);
@@ -31,9 +31,8 @@ export default class Model {
 
   toggleTodo = (event) => {
     for (let i = 0; i < this.tasks.length; i += 1) {
-      (event.target.checked)?
-        this.tasks[i].bool = true
-        : this.tasks[i].bool = false;
+      return (event.target.checked) ? this.tasks[i].bool = true
+      : this.tasks[i].bool = false;
     }
     this.update(this.tasks);
   };
@@ -41,18 +40,18 @@ export default class Model {
   changeStatusValue(inputNum, input) {
     this.tasks.forEach((currentItem) => {
       if (currentItem.number === inputNum) {
-        currentItem.string = (input === true)? input : '';
+        currentItem.string = (input === true) ? input : '';
       }
     });
     this.update(this.tasks);
-  };
+  }
 
   removeTodo(event) {
-    this.string = 
-    event.target.parentElement.firstElementChild.nextElementSibling.firstElementChild.value;
+    this.parent = event.target.parentElement
+    this.string = this.parent.firstElementChild.nextElementSibling.firstElementChild.value;
     this.tasks.forEach((currentItem, index) => {
-      (this.string === currentItem.string) ? this.tasks.splice(index, 1) : '';
+     return  (this.string === currentItem.string) ? this.tasks.splice(index, 1) : '';
     });
     this.update(this.tasks);
-  };
+  }
 }

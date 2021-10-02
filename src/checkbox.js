@@ -1,5 +1,5 @@
-import View from "./view.js";
-import Model from "./model.js";
+import View from './view.js';
+import Model from './model.js';
 
 export default class Checkbox {
   constructor() {
@@ -18,10 +18,10 @@ export default class Checkbox {
       if (this.status) {
         // event.target.checked = true;
         this.tasks[i].bool = true;
-        this.string.style.textDecoration = "line-through";
+        this.string.style.textDecoration = 'line-through';
       } else {
         this.tasks[i].bool = false;
-        this.string.style.textDecoration = "none";
+        this.string.style.textDecoration = 'none';
       }
     }
   };

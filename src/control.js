@@ -46,9 +46,9 @@ class Control {
       if (event.key === 'Enter' && !document.querySelector('.search').value) {
         event.preventDefault();
         this.model.changeStatusValue(this.textarea.parentElement.parentElement.id,
-           this.textarea.value);
+        this.textarea.value);
       }
-    })
+    });
   }
 
   handleCheckEvent = (event) => {
@@ -69,11 +69,12 @@ class Control {
         if (this.model.tasks.number === currentItem.parentElement.parentElement.id) {
           this.model.tasks.splice(index, 1);
         }
-        localStorage.setItem('todos', JSON.stringify(this.model.tasks))
-      })
+        localStorage.setItem('todos', JSON.stringify(this.model.tasks));
+      });
       this.view.display(this.model.tasks);
-    })
+    });
   }
 }
 
 const control = new Control(new View(), new Model(), new Checkbox());
+control.handleChange(this.model.tasks);

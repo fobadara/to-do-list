@@ -77,4 +77,4 @@ class Control {
 }
 
 const control = new Control(new View(), new Model(), new Checkbox());
-control;
+control.handleCompleted;

@@ -5,7 +5,8 @@
   "main": "server.js",
   "dependencies": {
     "eslint-config-airbnb": "^18.2.1",
-    "webpack": "^5.54.0"
+    "webpack": "^5.54.0",
+    "webpack-merge": "^5.8.0"
   },
   "devDependencies": {
     "css-loader": "^6.3.0",

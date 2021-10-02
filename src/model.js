@@ -23,40 +23,36 @@ export default class Model {
       string: input,
       bool: this.bool,
       number: (this.tasks.length > 0) ? this.tasks[this.tasks.length - 1].number + 1 : 1
-    }
+    };
 
     this.array = this.tasks.push(this.newArray);
     this.update(this.tasks);
   }
 
-  toggleTodo(event) {
+  toggleTodo = (event) => {
     for (let i = 0; i < this.tasks.length; i += 1) {
-      console.log(this.tasks[i])
-      return (event.target.checked) ?
-        (this.tasks[i].bool = true, console.log(this.tasks[i].bool))
-        : (this.tasks[i].bool = false, console.log(this.tasks[i].bool));
+      (event.target.checked)?
+        this.tasks[i].bool = true
+        : this.tasks[i].bool = false;
     }
-    this.update(this.tasks)
-  }
+    this.update(this.tasks);
+  };
 
   changeStatusValue(inputNum, input) {
-    this.tasks.forEach(currentItem => {
-      console.log(inputNum, currentItem.number);
-      if (currentItem.number == inputNum) {
-        console.log(input)
-        currentItem.string = (input) ? input : '';
-        console.log(currentItem.string)
+    this.tasks.forEach((currentItem) => {
+      if (currentItem.number === inputNum) {
+        currentItem.string = (input === true)? input : '';
       }
-      console.log(currentItem.string)
-    })
+    });
     this.update(this.tasks);
-  }
+  };
 
   removeTodo(event) {
-    this.string = event.target.parentElement.firstElementChild.nextElementSibling.firstElementChild.value;
+    this.string = 
+    event.target.parentElement.firstElementChild.nextElementSibling.firstElementChild.value;
     this.tasks.forEach((currentItem, index) => {
-      (this.string === currentItem.string) ? (this.tasks.splice(index, 1)) : ''
-    })
+      (this.string === currentItem.string) ? this.tasks.splice(index, 1) : '';
+    });
     this.update(this.tasks);
-  }
+  };
 }

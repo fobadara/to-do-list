@@ -1,7 +1,7 @@
 import './style.css';
 import View from './view.js';
 import Model from './model.js';
-import Checkbox from './checkbox';
+import Checkbox from './checkbox.js';
 
 class Control {
   constructor(view, model, checkbox) {
@@ -37,7 +37,7 @@ class Control {
 
     // Change background-color
     this.parent = event.target.parentElement;
-    this.parent.style.cssText = 'background-color: rgb(248, 239, 169)'
+    this.parent.style.cssText = 'background-color: rgb(248, 239, 169);';
     this.view.getRemoveBtn(this.passRemoveBtn);
 
     //  Add value to changeStatusValue in model
@@ -45,7 +45,8 @@ class Control {
     this.body.addEventListener('keypress', this.passVal = (event) => {
       if (event.key === 'Enter' && !document.querySelector('.search').value) {
         event.preventDefault();
-        this.model.changeStatusValue(this.textarea.parentElement.parentElement.id, this.textarea.value);
+        this.model.changeStatusValue(this.textarea.parentElement.parentElement.id,
+           this.textarea.value);
       }
     })
   }
@@ -57,17 +58,14 @@ class Control {
 
   passRemoveBtn = (event) => {
     this.model.removeTodo(event);
-    console.log('dfjkfjkf');
     this.view.display(this.model.tasks);
   }
-
 
   handleCompleted = () => {
     this.clear = document.querySelector('.clear');
     this.row = document.querySelectorAll('textarea');
     this.clear.addEventListener('click', () => {
       this.row.forEach((currentItem, index) => {
-        console.log(currentItem.parentElement.parentElement.id, this.model.tasks)
         if (this.model.tasks.number === currentItem.parentElement.parentElement.id) {
           this.model.tasks.splice(index, 1);
         }

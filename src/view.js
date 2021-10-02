@@ -11,7 +11,6 @@ export default class View {
       tasks.forEach((currentItem) => {
         this.div = document.createElement('div');
         this.div.classList.add('row');
-        console.log(this.number);
         this.div.setAttribute('id', `${this.number}`);
         this.number += 1;
 
@@ -29,11 +28,10 @@ export default class View {
         this.textarea.setAttribute('draggable', true);
         this.textarea.setAttribute('required', true);
         if (currentItem.bool) {
-          this.textarea.style.textDecoration = 'line-through'
+          this.textarea.style.textDecoration = 'line-through';
         } else {
           this.checkbox.style.textDecoration = 'none';
         }
-        console.log(currentItem.bool)
         this.textarea.value = `${currentItem.string}`;
         this.textarea.classList.add('string');
         this.button = document.createElement('button');
@@ -77,19 +75,18 @@ export default class View {
     this.body = document.querySelector('body');
     this.body.addEventListener('change', (event) => {
       (event.target.type === 'checkbox') ? handler(event) : '';
-    })
+    });
   }
-
 
   getRemoveBtn = (handler) => {
     this.removeBtn = document.querySelectorAll('.bin');
-    this.removeBtn.forEach(currentItem => {
+    this.removeBtn.forEach(() => {
       document.addEventListener('click', (event) => {
         if (event.target.id === 'bin') {
           handler(event);
         }
       });
-    })
+    });
   }
 
   editList(handler) {
@@ -101,6 +98,6 @@ export default class View {
         this.clickedData = event.target.dataset.data;
         (this.data === this.clickedData) ? handler(event) : '';
       });
-    })
-  }
+    });
+  };
 }

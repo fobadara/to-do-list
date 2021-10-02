@@ -73,9 +73,7 @@ export default class View {
 
   listenToCheckBox = (handler) => {
     this.body = document.querySelector('body');
-    this.body.addEventListener('change', (event) => {
-      return (event.target.type === 'checkbox') ? handler(event) : '';
-    });
+    this.body.addEventListener('change', (event) =>  (event.target.type === 'checkbox') ? handler(event) : ' ');
   }
 
   getRemoveBtn = (handler) => {

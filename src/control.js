@@ -46,7 +46,7 @@ class Control {
       if (event.key === 'Enter' && !document.querySelector('.search').value) {
         event.preventDefault();
         this.model.changeStatusValue(this.textarea.parentElement.parentElement.id,
-        this.textarea.value);
+          this.textarea.value);
       }
     });
   }

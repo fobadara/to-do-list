@@ -30,8 +30,9 @@ export default class Model {
   }
 
   toggleTodo = (event) => {
-    for (let i = 0; i < this.tasks.length; i += 1) (event.target.checked) ? this.tasks[i].bool = true
-       : this.tasks[i].bool = false;
+    for (let i = 0; i < this.tasks.length; i += 1){ 
+      (event.target.checked === true) ? this.tasks[i].bool = true
+      : this.tasks[i].bool = false;
     this.update(this.tasks);
   };
 
@@ -47,7 +48,7 @@ export default class Model {
   removeTodo(event) {
     this.parent = event.target.parentElement;
     this.string = this.parent.firstElementChild.nextElementSibling.firstElementChild.value;
-    this.tasks.forEach((currentItem, index) => (this.string === currentItem.string) ? this.tasks.splice(index, 1) : ' ');
+    this.tasks.forEach((currentItem, index) => ((this.string === currentItem.string) ? this.tasks.splice(index, 1) : ' '));
     this.update(this.tasks);
   }
 }

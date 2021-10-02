@@ -4,9 +4,7 @@ export default class Model {
   }
 
   setStorage = (todos) => {
-    // this.tasks.forEach(element => {
     localStorage.setItem('todos', JSON.stringify(todos));
-    // });
   }
 
   bindChange = (callback) => {
@@ -19,8 +17,13 @@ export default class Model {
   }
 
   addTodo = (input) => {
+    if(input.style.textDecoration === 'line-through') {
+      this.bool = true;
+    }else {
+      this.bool = false;
+    }
     this.newArray = {
-      string: input,
+      string: input.value,
       bool: this.bool,
       number: (this.tasks.length > 0) ? this.tasks[this.tasks.length - 1].number + 1 : 1,
     };
@@ -30,19 +33,23 @@ export default class Model {
   }
 
   toggleTodo = (event) => {
+    this.string = event.target.nextElementSibling.firstElementChild.value;     
     for (let i = 0; i < this.tasks.length; i += 1) {
-      if (event.target.checked) {
+      if (event.target.checked === true && this.string === this.tasks[i].string) {
         this.tasks[i].bool = true;
-      } else {
+        continue;
+      } else if  (event.target.checked === false && this.string === this.tasks[i].string) {
         this.tasks[i].bool = false;
-        this.update(this.tasks);
+        continue;
       }
     }
+    this.setStorage(this.tasks);
   }
 
   changeStatusValue(inputNum, input) {
     this.tasks.forEach((currentItem) => {
-      if (currentItem.number === inputNum) {
+     console.log(currentItem.number, parseInt(inputNum));
+      if (currentItem.number === parseInt(inputNum)) {
         currentItem.string = (input === true) ? input : '';
       }
     });

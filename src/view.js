@@ -2,10 +2,10 @@ export default class View {
   constructor() {
     this.list = document.querySelector('.items');
     this.fragment = new DocumentFragment();
-    this.number = 0;
   }
 
   createElements = (tasks) => {
+    this.number = 1;
     if (tasks) {
       this.list.innerHTML = '';
       tasks.forEach((currentItem) => {
@@ -66,7 +66,7 @@ export default class View {
     this.search = document.querySelector('.search');
     this.form.addEventListener('submit', (event) => {
       event.preventDefault();
-      handler(this.search.value);
+      handler(this.search);
       this.search.value = '';
     });
   }

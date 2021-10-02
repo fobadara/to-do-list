@@ -17,9 +17,9 @@ export default class Model {
   }
 
   addTodo = (input) => {
-    if(input.style.textDecoration === 'line-through') {
+    if (input.style.textDecoration === 'line-through') {
       this.bool = true;
-    }else {
+    } else {
       this.bool = false;
     }
     this.newArray = {
@@ -33,14 +33,12 @@ export default class Model {
   }
 
   toggleTodo = (event) => {
-    this.string = event.target.nextElementSibling.firstElementChild.value;     
+    this.string = event.target.nextElementSibling.firstElementChild.value;
     for (let i = 0; i < this.tasks.length; i += 1) {
       if (event.target.checked === true && this.string === this.tasks[i].string) {
         this.tasks[i].bool = true;
-        continue;
-      } else if  (event.target.checked === false && this.string === this.tasks[i].string) {
+      } else if (event.target.checked === false && this.string === this.tasks[i].string) {
         this.tasks[i].bool = false;
-        continue;
       }
     }
     this.setStorage(this.tasks);
@@ -48,10 +46,9 @@ export default class Model {
 
   changeStatusValue(inputNum, input) {
     this.tasks.forEach((currentItem) => {
-     console.log(currentItem.number, parseInt(inputNum));
-      if (currentItem.number === parseInt(inputNum)) {
-        currentItem.string = (input === true) ? input : '';
-      }
+        if (currentItem.number === parseInt(inputNum, 10)) {
+          currentItem.string = (input === true) ? input : '';
+        }
     });
     this.update(this.tasks);
   }

@@ -15,18 +15,11 @@ export default class Checkbox {
     this.status = event.target.checked;
     this.string = event.target.nextElementSibling.firstElementChild;
     for (let i = 0; i < this.tasks.length; i += 1) {
-      console.log(this.tasks)
       if (this.status) {
-        console.log(this.tasks)
-        // this.tasks[i].bool = !this.tasks[i].bool;
         this.string.style.textDecoration = 'line-through';
-        
       } else {
-        // this.tasks[i].bool = !this.tasks[i].bool;
         this.string.style.textDecoration = 'none';
       }
-      console.log(this.tasks)
-      console.log(this.storage)
     }
   };
 }

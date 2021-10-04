@@ -42,9 +42,11 @@ class Control {
     this.body.addEventListener('keypress', this.passVal = (event) => {
       if (event.key === 'Enter' && !document.querySelector('.search').value) {
         event.preventDefault();
-        this.model.changeStatusValue(this.textarea.parentElement.parentElement.id,
+        if (this.textarea.value) {
+          this.model.changeStatusValue(this.textarea.parentElement.parentElement.id,
           this.textarea, this.textarea.value);
-      }
+      };
+    };
     });
   }
 
@@ -66,8 +68,8 @@ class Control {
         if (currentItem.bool === true) {
           this.model.tasks.splice(index, 1);
         }
-        currentItem.number = index  + 1;
-        this.model.update(this.model.tasks);    
+        currentItem.number = index + 1;
+        this.model.update(this.model.tasks);
       });
     });
   }

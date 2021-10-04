@@ -17,19 +17,21 @@ export default class Model {
   }
 
   addTodo = (input) => {
-    if (input.style.textDecoration === 'line-through') {
-      this.bool = true;
-    } else {
-      this.bool = false;
-    }
-    this.newArray = {
-      string: input.value,
-      bool: this.bool,
-      number: (this.tasks.length > 0) ? this.tasks[this.tasks.length - 1].number + 1 : 1,
-    };
+    if (input) {
+      if (input.style.textDecoration === 'line-through') {
+        this.bool = true;
+      } else {
+        this.bool = false;
+      }
+      this.newArray = {
+        string: input.value,
+        bool: this.bool,
+        number: (this.tasks.length > 0) ? this.tasks[this.tasks.length - 1].number + 1 : 1,
+      };
 
-    this.array = this.tasks.push(this.newArray);
-    this.update(this.tasks);
+      this.array = this.tasks.push(this.newArray);
+      this.update(this.tasks);
+    }
   }
 
   toggleTodo = (event) => {
@@ -47,10 +49,10 @@ export default class Model {
   changeStatusValue(inputNum, input, value) {
     this.tasks.forEach((currentItem) => {
       this.parentId = input.parentElement.parentElement.id;
-      if (parseInt(this.parentId) === parseInt(inputNum, 10) && parseInt(inputNum) === currentItem.number) {
+      if (parseInt(this.parentId, 10) === parseInt(inputNum, 10)
+        && parseInt(inputNum, 10) === currentItem.number) {
         currentItem.string = value;
-    }else {
-    }
+      }
     });
     this.update(this.tasks);
   }
@@ -58,13 +60,12 @@ export default class Model {
   removeTodo(event) {
     this.parent = event.target.parentElement;
     this.string = this.parent.firstElementChild.nextElementSibling.firstElementChild.value;
-    this.tasks.forEach((currentItem, index) =>{
-       if (this.string === currentItem.string) {
-         this.tasks.splice(index, 1) 
-        }
-        currentItem.number = index  + 1;
-            this.update(this.tasks);    
-      }   
-    );
+    this.tasks.forEach((currentItem, index) => {
+      if (this.string === currentItem.string) {
+        this.tasks.splice(index, 1) ;
+      }
+      currentItem.number = index + 1;
+      this.update(this.tasks);
+    });
   }
 }

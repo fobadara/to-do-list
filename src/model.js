@@ -44,11 +44,13 @@ export default class Model {
     this.setStorage(this.tasks);
   }
 
-  changeStatusValue(inputNum, input) {
+  changeStatusValue(inputNum, input, value) {
     this.tasks.forEach((currentItem) => {
-      if (currentItem.number === parseInt(inputNum, 10)) {
-        currentItem.string = (input === true) ? input : '';
-      }
+      this.parentId = input.parentElement.parentElement.id;
+      if (parseInt(this.parentId) === parseInt(inputNum, 10) && parseInt(inputNum) === currentItem.number) {
+        currentItem.string = value;
+    }else {
+    }
     });
     this.update(this.tasks);
   }
@@ -56,7 +58,13 @@ export default class Model {
   removeTodo(event) {
     this.parent = event.target.parentElement;
     this.string = this.parent.firstElementChild.nextElementSibling.firstElementChild.value;
-    this.tasks.forEach((currentItem, index) => ((this.string === currentItem.string) ? this.tasks.splice(index, 1) : ' '));
-    this.update(this.tasks);
+    this.tasks.forEach((currentItem, index) =>{
+       if (this.string === currentItem.string) {
+         this.tasks.splice(index, 1) 
+        }
+        currentItem.number = index  + 1;
+            this.update(this.tasks);    
+      }   
+    );
   }
 }

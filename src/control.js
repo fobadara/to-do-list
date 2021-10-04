@@ -31,22 +31,19 @@ class Control {
     this.bin = event.target.nextElementSibling;
     this.bin.style.display = 'block';
 
-    // Make row editable
     this.textarea = event.target.previousElementSibling.firstElementChild;
     this.textarea.readOnly = false;
 
-    // Change background-color
     this.parent = event.target.parentElement;
     this.parent.style.cssText = 'background-color: rgb(248, 239, 169);';
     this.view.getRemoveBtn(this.passRemoveBtn);
 
-    //  Add value to changeStatusValue in model
     this.body = document.querySelector('body');
     this.body.addEventListener('keypress', this.passVal = (event) => {
       if (event.key === 'Enter' && !document.querySelector('.search').value) {
         event.preventDefault();
         this.model.changeStatusValue(this.textarea.parentElement.parentElement.id,
-          this.textarea.value);
+          this.textarea, this.textarea.value);
       }
     });
   }
@@ -65,13 +62,13 @@ class Control {
     this.clear = document.querySelector('.clear');
     this.row = document.querySelectorAll('textarea');
     this.clear.addEventListener('click', () => {
-      this.row.forEach((currentItem, index) => {
-        if (this.model.tasks.number === currentItem.parentElement.parentElement.id) {
+      this.model.tasks.forEach((currentItem, index) => {
+        if (currentItem.bool === true) {
           this.model.tasks.splice(index, 1);
         }
-        localStorage.setItem('todos', JSON.stringify(this.model.tasks));
+        currentItem.number = index  + 1;
+        this.model.update(this.model.tasks);    
       });
-      this.view.display(this.model.tasks);
     });
   }
 }

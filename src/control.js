@@ -44,9 +44,9 @@ class Control {
         event.preventDefault();
         if (this.textarea.value) {
           this.model.changeStatusValue(this.textarea.parentElement.parentElement.id,
-          this.textarea, this.textarea.value);
-      };
-    };
+            this.textarea, this.textarea.value);
+        }
+      }
     });
   }
 

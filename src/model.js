@@ -62,7 +62,7 @@ export default class Model {
     this.string = this.parent.firstElementChild.nextElementSibling.firstElementChild.value;
     this.tasks.forEach((currentItem, index) => {
       if (this.string === currentItem.string) {
-        this.tasks.splice(index, 1) ;
+        this.tasks.splice(index, 1);
       }
       currentItem.number = index + 1;
       this.update(this.tasks);

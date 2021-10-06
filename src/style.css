@@ -1,0 +1,145 @@
+html {
+  text-size-adjust: 100%;
+}
+
+body {
+  background-color: rgb(248, 239, 169);
+  background-color: rgb(238, 236, 236);
+}
+
+.no-fluid {
+  padding-left: 0.6em;
+  padding-right: 0.5em;
+}
+
+input,
+textarea {
+  border: none;
+  outline: none;
+  font-size: 19px;
+}
+
+.string {
+  width: 99%;
+  background: none;
+  border: none;
+  padding-top: 1.5em;
+}
+
+textarea:active,
+textarea:hover {
+  outline: none;
+  border: none;
+}
+
+.outter-cont {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  border-radius: 0.5em;
+  box-shadow: 0 0 8px 10px rgb(180, 178, 178);
+}
+
+.head-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  background-color: #fff;
+  border-bottom: solid thin;
+}
+
+.head-cont span {
+  font-size: x-large;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.items-cont {
+  background-color: #fff;
+}
+
+.search-cont {
+  display: flex;
+  border-bottom: solid thin rgb(10, 10, 10);
+  margin-bottom: 0;
+  padding: 0.1em 0;
+  font-size: xx-large;
+}
+
+.search-cont input {
+  font-style: italic;
+  border: none;
+  outline: none;
+  padding: 0.5em 0 0.5em 0.5em;
+  justify-self: end;
+}
+
+.search-cont .search {
+  width: 100%;
+}
+
+.checkbox {
+  margin-left: 0.5em;
+}
+
+.search-cont button {
+  /* padding-left: 8.5em; */
+  border: none;
+  background: none;
+}
+
+.row {
+  margin-bottom: 0;
+  font-size: xx-large;
+  padding: 0.1em 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid thin;
+}
+
+.bin {
+  display: none;
+}
+
+.bin:hover {
+  color: red;
+}
+
+.clear-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(216, 215, 215);
+}
+
+.clear {
+  width: 100%;
+  height: 100%;
+  padding: 0.7em;
+  border: none;
+  background: none;
+  font-size: x-large;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+footer {
+  width: 80%;
+  position: fixed;
+  bottom: 0;
+}
+
+footer p {
+  width: 80%;
+  margin: auto;
+}
+
+footer a {
+  text-decoration: none;
+  font-weight: bold;
+}

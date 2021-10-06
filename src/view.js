@@ -13,7 +13,7 @@ export default class View {
         this.div.classList.add('row');
         this.div.setAttribute('id', `${this.number}`);
         this.number += 1;
-
+      
         this.checkbox = document.createElement('input');
         this.checkbox.setAttribute('type', 'checkbox');
         this.checkbox.classList.add('no-fluid');

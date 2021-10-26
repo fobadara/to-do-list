@@ -2,7 +2,7 @@
 >This is a to-do list site that makes use of Loalstorage and Drag and Drop API
 
 
-**<div align="center"><a href="https://fobadara.github.io/to-do-list" text="bold">Live Demo</a></div>**
+**<div align="center"><a href="https://fobadara.github.io/to-do-list/dist/" text="bold">Live Demo</a></div>**
 
 ## Description
 
@@ -32,7 +32,7 @@ The application is built using basic principles of Object Oriented Programming a
 
 To get a local copy up and running follow these simple example steps.
 
-⬜ clone the app by running this command `git clone https://github.com/fobadara/to-do-list`
+⬜ clone the app by running this command `git clone https://github.com/fobadara/to-do-list/dist/`
 
 ⬜ Run this command `cd to-do-list`
 

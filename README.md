@@ -32,7 +32,7 @@ The application is built using basic principles of Object Oriented Programming a
 
 To get a local copy up and running follow these simple example steps.
 
-⬜ clone the app by running this command `git clone https://github.com/fobadara/to-do-list/dist/`
+⬜ clone the app by running this command `git clone https://github.com/fobadara/to-do-list`
 
 ⬜ Run this command `cd to-do-list`
 

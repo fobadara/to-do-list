@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 export default class View {
   constructor() {
     this.list = document.querySelector('.items');
@@ -54,47 +55,5 @@ export default class View {
       });
       this.list.append(this.fragment);
     }
-  }
-
-  display = (tasks) => {
-    this.createElements(tasks);
-  }
-
-  getSearchValue = (handler) => {
-    this.form = document.querySelector('form');
-    this.search = document.querySelector('.search');
-    this.form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      handler(this.search);
-      this.search.value = '';
-    });
-  }
-
-  listenToCheckBox = (handler) => {
-    this.body = document.querySelector('body');
-    this.body.addEventListener('change', (event) => ((event.target.type === 'checkbox') ? handler(event) : ' '));
-  }
-
-  getRemoveBtn = (handler) => {
-    this.removeBtn = document.querySelectorAll('.bin');
-    this.removeBtn.forEach(() => {
-      document.addEventListener('click', (event) => {
-        if (event.target.id === 'bin') {
-          handler(event);
-        }
-      });
-    });
-  }
-
-  editList(handler) {
-    this.more = document.querySelectorAll('.more');
-    this.body = document.querySelector('body');
-    this.more.forEach((currentItem) => {
-      this.body.addEventListener('click', (event) => {
-        this.data = currentItem.dataset.data;
-        this.clickedData = event.target.dataset.data;
-        return (this.data === this.clickedData) ? handler(event) : '';
-      });
-    });
   }
 }

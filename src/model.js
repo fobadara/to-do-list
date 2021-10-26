@@ -1,6 +1,7 @@
 export default class Model {
   constructor() {
     this.tasks = JSON.parse(localStorage.getItem('todos')) || [];
+    this.update();
   }
 
   setStorage = (todos) => {

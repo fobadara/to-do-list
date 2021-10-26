@@ -1,9 +1,8 @@
-import './style.css';
 import View from './view.js';
 import Model from './model.js';
 import Checkbox from './checkbox.js';
 
-class Control {
+export default class Control {
   constructor(view, model, checkbox) {
     this.model = model;
     this.view = view;

@@ -1,7 +1,7 @@
 import './style.css';
 import View from './view.js';
 import Model from './model.js';
-import Checkbox from './checkbox';
+import Checkbox from './checkbox.js';
 
 class Control {
   constructor(view, model, checkbox) {

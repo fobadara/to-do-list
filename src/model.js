@@ -1,44 +1,71 @@
 export default class Model {
   constructor() {
-    this.tasks = [
-      { string: 'run', bool: false, number: 1 },
-      { string: 'exercise', bool: false, number: 2 },
-    ];
+    this.tasks = JSON.parse(localStorage.getItem('todos')) || [];
+  }
+
+  setStorage = (todos) => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }
+
+  bindChange = (callback) => {
+    this.change = callback;
+  }
+
+  update(tasks) {
+    this.change(tasks);
+    this.setStorage(tasks);
   }
 
   addTodo = (input) => {
-    this.string = input.value;
-    this.bool = input.checked;
-    
-    this.newArray = {
-      string: this.string,
-      bool: this.bool,
-      number: (this.tasks.length > 0)? this.tasks[this.tasks.length - 1].number + 1 : 1
+    if (input) {
+      if (input.style.textDecoration === 'line-through') {
+        this.bool = true;
+      } else {
+        this.bool = false;
+      }
+      this.newArray = {
+        string: input.value,
+        bool: this.bool,
+        number: (this.tasks.length > 0) ? this.tasks[this.tasks.length - 1].number + 1 : 1,
+      };
+
+      this.array = this.tasks.push(this.newArray);
+      this.update(this.tasks);
     }
-      this.tasks.push(this.newArray);
   }
 
-  editTodo() {
-
+  toggleTodo = (event) => {
+    this.string = event.target.nextElementSibling.firstElementChild.value;
+    for (let i = 0; i < this.tasks.length; i += 1) {
+      if (event.target.checked === true && this.string === this.tasks[i].string) {
+        this.tasks[i].bool = true;
+      } else if (event.target.checked === false && this.string === this.tasks[i].string) {
+        this.tasks[i].bool = false;
+      }
+    }
+    this.setStorage(this.tasks);
   }
 
-  toggleTodo(event) {
-    console.log(event)
-    this.tasks.forEach(currentItem => {
-      (event.target.checked && event.target.id === currentItem.number) ? (
-        console.log('true'),
-        currentItem.bool = false
-      )
-        : (
-          console.log('sdasdaj'),
-          currentItem.bool = true
-      );
-    })
-
+  changeStatusValue(inputNum, input, value) {
+    this.tasks.forEach((currentItem) => {
+      this.parentId = input.parentElement.parentElement.id;
+      if (parseInt(this.parentId, 10) === parseInt(inputNum, 10)
+        && parseInt(inputNum, 10) === currentItem.number) {
+        currentItem.string = value;
+      }
+    });
+    this.update(this.tasks);
   }
 
-  removeTodo() {
-
+  removeTodo(event) {
+    this.parent = event.target.parentElement;
+    this.string = this.parent.firstElementChild.nextElementSibling.firstElementChild.value;
+    this.tasks.forEach((currentItem, index) => {
+      if (this.string === currentItem.string) {
+        this.tasks.splice(index, 1);
+      }
+      currentItem.number = index + 1;
+      this.update(this.tasks);
+    });
   }
 }
-

@@ -2,7 +2,7 @@
 >This is a to-do list site that makes use of Loalstorage and Drag and Drop API
 
 
-**<div align="center"><a href="https://fobadara.github.io/to-do-list/dist/" text="bold">Live Demo</a></div>**
+**<div align="center"><a href="https://fobadara.github.io/to-do-list" text="bold">Live Demo</a></div>**
 
 ## Description
 

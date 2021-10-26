@@ -1,22 +1,17 @@
 export default class Model {
   constructor() {
-    this.tasks =  JSON.parse(localStorage.getItem('todos')) || [ ];
+    this.tasks = JSON.parse(localStorage.getItem('todos')) || [
+      { string: 'run', bool: false, number: 1 },
+      { string: 'exercise', bool: false, number: 2 },
+    ];
   }
 
-  // getStorage() {
-  //   this.store = JSON.parse(localStorage.getItem('todos'))  
-  //   console.log(this.store);
-  // }
-
   setStorage = (todos) => {
-    // this.tasks.forEach(element => {
-      localStorage.setItem('todos',  JSON.stringify(todos));      
-    // });
-   }
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }
 
-  bindChange=(callback) => {
-   this.change = callback;
-    // handler(this.tasks);
+  bindChange = (callback) => {
+    this.change = callback;
   }
 
   update(tasks) {
@@ -25,50 +20,55 @@ export default class Model {
   }
 
   addTodo = (input) => {
-    
-    this.newArray = {
-      string: input,
-      bool: this.bool,
-      number: (this.tasks.length > 0)? this.tasks[this.tasks.length - 1].number + 1 : 1
-    }
-    
-    this.array = this.tasks.push(this.newArray) ;
+    if (input) {
+      if (input.style.textDecoration === 'line-through') {
+        this.bool = true;
+      } else {
+        this.bool = false;
+      }
+      this.newArray = {
+        string: input.value,
+        bool: this.bool,
+        number: (this.tasks.length > 0) ? this.tasks[this.tasks.length - 1].number + 1 : 1,
+      };
+
+      this.array = this.tasks.push(this.newArray);
       this.update(this.tasks);
     }
-
-  editTodo() {
-
   }
 
-  toggleTodo(event) {
-    for(let i = 0; i < this.tasks.length; i+=1){
-      console.log(this.tasks[i])
-      return (event.target.checked ) ? 
-      (this.tasks[i].bool = true, console.log(this.tasks[i].bool))
-      : (this.tasks[i].bool = false, console.log(this.tasks[i].bool));
-    }
-    this.update(this.tasks)
-  }
-
-  changeStatusValue(inputNum, input) {
-    this.tasks.forEach(currentItem => {
-      console.log(inputNum, currentItem.number);
-      if(currentItem.number == inputNum) {
-        console.log(input)
-        currentItem.string =  (input)? input : '';
-        console.log(currentItem.string)
+  toggleTodo = (event) => {
+    this.string = event.target.nextElementSibling.firstElementChild.value;
+    for (let i = 0; i < this.tasks.length; i += 1) {
+      if (event.target.checked === true && this.string === this.tasks[i].string) {
+        this.tasks[i].bool = true;
+      } else if (event.target.checked === false && this.string === this.tasks[i].string) {
+        this.tasks[i].bool = false;
       }
-      console.log(currentItem.string)
-    })
+    }
+    this.setStorage(this.tasks);
+  }
+
+  changeStatusValue(inputNum, input, value) {
+    this.tasks.forEach((currentItem) => {
+      this.parentId = input.parentElement.parentElement.id;
+      if (parseInt(this.parentId, 10) === parseInt(inputNum, 10)
+        && parseInt(inputNum, 10) === currentItem.number) {
+        currentItem.string = value;
+      }
+    });
     this.update(this.tasks);
   }
 
   removeTodo(event) {
-    this.string = event.target.parentElement.firstElementChild.nextElementSibling.firstElementChild.value;
+    this.parent = event.target.parentElement;
+    this.string = this.parent.firstElementChild.nextElementSibling.firstElementChild.value;
     this.tasks.forEach((currentItem, index) => {
-      (this.string  === currentItem.string)?  (this.tasks.splice(index ,  1))  :  ''
-    })
-    this.update(this.tasks);
+      if (this.string === currentItem.string) {
+        this.tasks.splice(index, 1);
+      }
+      currentItem.number = index + 1;
+      this.update(this.tasks);
+    });
   }
 }
-

@@ -23,7 +23,7 @@ describe('DOM manipulation', () => {
   test('should check if one item is removed', () => {
     const model = new Model();
 
-    
+
     model.removeTodo();
   });
 });

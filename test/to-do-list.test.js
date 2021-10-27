@@ -1,5 +1,7 @@
 import View from '../src/view.js';
 
+import Model from '../src/model.js';
+
 test('sanity check', () => {
   expect(true).toBe(true);
 });
@@ -16,5 +18,12 @@ describe('DOM manipulation', () => {
     view.createElements(tasks);
     const list = document.querySelectorAll('.items textarea');
     expect(list).toHaveLength(1);
+  });
+
+  test('should check if one item is removed', () => {
+    const model = new Model();
+
+    
+    model.removeTodo();
   });
 });

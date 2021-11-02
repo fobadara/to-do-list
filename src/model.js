@@ -1,19 +1,17 @@
+import View from './view.js';
+
 export default class Model {
   constructor() {
+    this.view = new View();
     this.tasks = JSON.parse(localStorage.getItem('todos')) || [];
-    this.update();
   }
 
   setStorage = (todos) => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }
 
-  bindChange = (callback) => {
-    this.change = callback;
-  }
-
   update(tasks) {
-    this.change(tasks);
+    this.view.display(this.tasks);
     this.setStorage(tasks);
   }
 
@@ -47,10 +45,10 @@ export default class Model {
     this.setStorage(this.tasks);
   }
 
-  changeStatusValue(inputNum, input, value) {
+  changeStatusValue(inputNum, moreId, value) {
     this.tasks.forEach((currentItem) => {
-      this.parentId = input.parentElement.parentElement.id;
-      if (parseInt(this.parentId, 10) === parseInt(inputNum, 10)
+      // this.parentId = input.parentElement.parentElement.id;
+      if (parseInt(moreId, 10) === parseInt(inputNum, 10)
         && parseInt(inputNum, 10) === currentItem.number) {
         currentItem.string = value;
       }
@@ -58,15 +56,18 @@ export default class Model {
     this.update(this.tasks);
   }
 
-  removeTodo(event) {
-    this.parent = event.target.parentElement;
+  removeTodo(target) {
+    this.parent = target.parentElement;
     this.string = this.parent.firstElementChild.nextElementSibling.firstElementChild.value;
+    this.row = document.querySelector('.row');
     this.tasks.forEach((currentItem, index) => {
       if (this.string === currentItem.string) {
         this.tasks.splice(index, 1);
       }
+      this.row.remove();
       currentItem.number = index + 1;
       this.update(this.tasks);
     });
+    this.row.remove();
   }
 }

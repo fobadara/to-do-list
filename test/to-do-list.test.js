@@ -7,6 +7,10 @@ test('sanity check', () => {
 });
 
 describe('DOM manipulation', () => {
+  const view = new View();
+
+  const model = new Model();
+
   test('add to todos', () => {
     const tasks = [{
       string: 'I am a test',
@@ -14,16 +18,36 @@ describe('DOM manipulation', () => {
       number: 1,
     }];
 
-    const view = new View();
     view.createElements(tasks);
-    const list = document.querySelectorAll('.items textarea');
+    const list = document.querySelectorAll('.items .row');
     expect(list).toHaveLength(1);
   });
 
   test('should check if one item is removed', () => {
-    const model = new Model();
+    const tasks = [{
+      string: 'I am a test',
+      bool: false,
+      number: 1,
+    }];
 
+    view.createElements(tasks);
 
-    model.removeTodo();
+    const bin = document.querySelector('.bin');
+    model.removeTodo(bin);
+    const list = document.querySelectorAll('.items .row');
+    expect(list).toHaveLength(0);
+  });
+
+  test('edit todo', () => {
+    model.tasks = [{
+      string: 'I am a test',
+      bool: false,
+      number: 1,
+    }];
+    const inputNum = 1;
+    const moreId = 1;
+    const value = 'run';
+    model.changeStatusValue(inputNum, moreId, value);
+    expect(model.tasks[0].string).toBe(value);
   });
 });

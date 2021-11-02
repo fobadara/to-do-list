@@ -1,13 +1,13 @@
 global.document.body.innerHTML = `
   <div class="items">
-    <div class="row" id="1">
-      <input type="checkbox" class="no-fluid click checkbox" style="text-decoration: none;">
-      <form>
-        <textarea readonly="true" draggable="true" required="true" class="string" style="border: none;">
-        </textarea>
-        <button style="display: none;"></button>
-      </form>
-      <span class="more" data-data="rmv">︙</span>
-      <span class="bin no-fluid" id="bin">🗑</span>
-    </div>
   </div>`;
+
+const main = global.document.createElement('div');
+main.id = '1';
+global.global.document.body.innerHTML += main;
+const edit = global.document.createElement('div');
+edit.id = 'edit';
+const input = global.document.createElement('input');
+input.id = 'input';
+edit.innerHTML += input;
+main.innerHTML += edit;

@@ -1,13 +1,13 @@
-import View from './view.js';
+import './style.css';
 import Model from './model.js';
+import View from './view.js';
 import Checkbox from './checkbox.js';
 
-export default class Control {
+class Control {
   constructor(view, model, checkbox) {
     this.model = model;
     this.view = view;
     this.checkbox = checkbox;
-    this.model.bindChange(this.handleChange);
     this.handleChange(this.model.tasks);
     this.view.getSearchValue(this.handleAddEvent);
     this.view.listenToCheckBox(this.handleCheckEvent);
@@ -27,6 +27,7 @@ export default class Control {
 
   handleEditList = (event) => {
     event.target.style.display = 'none';
+    this.moreId = event.target.id;
     this.bin = event.target.nextElementSibling;
     this.bin.style.display = 'block';
 
@@ -43,7 +44,7 @@ export default class Control {
         event.preventDefault();
         if (this.textarea.value) {
           this.model.changeStatusValue(this.textarea.parentElement.parentElement.id,
-            this.textarea, this.textarea.value);
+            this.moreId, this.textarea.value);
         }
       }
     });
@@ -55,7 +56,7 @@ export default class Control {
   }
 
   passRemoveBtn = (event) => {
-    this.model.removeTodo(event);
+    this.model.removeTodo(event.target);
     this.view.display(this.model.tasks);
   }
 

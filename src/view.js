@@ -12,7 +12,7 @@ export default class View {
         this.div = document.createElement('div');
         this.div.classList.add('row');
         this.div.setAttribute('id', `${this.number}`);
-        this.number += 1;
+
         this.checkbox = document.createElement('input');
         this.checkbox.setAttribute('type', 'checkbox');
         this.checkbox.classList.add('no-fluid');
@@ -38,8 +38,10 @@ export default class View {
 
         this.more = document.createElement('span');
         this.more.classList = 'more';
+        this.more.setAttribute('id', `${this.number}`);
         this.more.dataset.data = 'rmv';
         this.more.innerHTML = '&#65049;';
+        this.number += 1;
 
         this.bin = document.createElement('span');
         this.bin.innerHTML = '&#128465;';

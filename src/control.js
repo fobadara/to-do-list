@@ -1,6 +1,6 @@
 import './style.css';
-import View from './view.js';
 import Model from './model.js';
+import View from './view.js';
 import Checkbox from './checkbox.js';
 
 class Control {
@@ -8,7 +8,6 @@ class Control {
     this.model = model;
     this.view = view;
     this.checkbox = checkbox;
-    this.model.bindChange(this.handleChange);
     this.handleChange(this.model.tasks);
     this.view.getSearchValue(this.handleAddEvent);
     this.view.listenToCheckBox(this.handleCheckEvent);
@@ -28,6 +27,7 @@ class Control {
 
   handleEditList = (event) => {
     event.target.style.display = 'none';
+    this.moreId = event.target.id;
     this.bin = event.target.nextElementSibling;
     this.bin.style.display = 'block';
 
@@ -44,7 +44,7 @@ class Control {
         event.preventDefault();
         if (this.textarea.value) {
           this.model.changeStatusValue(this.textarea.parentElement.parentElement.id,
-            this.textarea, this.textarea.value);
+            this.moreId, this.textarea.value);
         }
       }
     });
@@ -56,7 +56,7 @@ class Control {
   }
 
   passRemoveBtn = (event) => {
-    this.model.removeTodo(event);
+    this.model.removeTodo(event.target);
     this.view.display(this.model.tasks);
   }
 

@@ -65,7 +65,7 @@ describe('DOM manipulation', () => {
   });
 
   // this tests editing functionality
-    test('edit todo', () => {
+  test('edit todo', () => {
     model.tasks = [{
       string: 'I am a test',
       bool: false,

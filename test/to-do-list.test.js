@@ -47,7 +47,7 @@ describe('DOM manipulation', () => {
     expect(list).toHaveLength(1);
   });
 
-// this tests remove functionality 
+  // this tests remove functionality
   test('should check if one item is removed', () => {
     const tasks = [{
       string: 'I am a test',
@@ -63,8 +63,8 @@ describe('DOM manipulation', () => {
     expect(list).toHaveLength(0);
   });
 
-// this tests editing functionality 
-  test('edit todo', () => {
+  // this tests editing functionality
+    test('edit todo', () => {
     model.tasks = [{
       string: 'I am a test',
       bool: false,

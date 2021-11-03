@@ -69,4 +69,15 @@ export default class Model {
     });
     this.row.remove();
   }
+
+  handleCompleted = () => {
+    // this.clear.addEventListener('click', () => {
+    this.tasks.forEach((currentItem, index) => {
+      if (currentItem.bool === true) {
+        this.tasks.splice(index, 1);
+      }
+      currentItem.number = index + 1;
+      this.update(this.tasks);
+    });
+  }
 }

@@ -83,7 +83,7 @@ describe('DOM manipulation', () => {
   });
 
   test('should mark as completed', () => {
-    model.tasks = [{
+    const tasks = [{
       string: 'I am a test',
       bool: false,
       number: 1,
@@ -92,5 +92,18 @@ describe('DOM manipulation', () => {
     const checkbox = document.querySelector('.checkbox');
     model.toggleTodo(checkbox, value);
     expect(model.tasks[0].bool).toBe(value);
+  });
+  test('should clear completed', () => {
+    const tasks = [{
+      string: 'I am a test',
+      bool: true,
+      number: 1,
+    }];
+
+    view.createElements(tasks);
+
+    model.handleCompleted();
+    const list = document.querySelectorAll('.items .row');
+    expect(list).toHaveLength(0);
   });
 });

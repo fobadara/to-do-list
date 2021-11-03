@@ -1,6 +1,6 @@
 global.document.body.innerHTML = `
-  <div class="items">
-  </div>`;
+    <div class="items">
+    </div>`;
 
 const main = global.document.createElement('div');
 main.id = '1';

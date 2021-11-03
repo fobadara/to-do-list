@@ -18,6 +18,8 @@ export default class View {
         this.checkbox.classList.add('no-fluid');
         this.checkbox.classList.add('click');
         this.checkbox.classList.add('checkbox');
+        this.checkbox.id = `${this.number}`;
+        console.log(this.checkbox.id)
         this.checkbox.checked = currentItem.bool;
 
         this.rowForm = document.createElement('form');

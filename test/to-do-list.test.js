@@ -25,6 +25,11 @@ function storageMock() {
   };
 }
 
+beforeEach(() => {
+  const localStorage = storageMock();
+  global.localStorage = localStorage;
+});
+
 test('sanity check', () => {
   expect(true).toBe(true);
 });
@@ -75,5 +80,17 @@ describe('DOM manipulation', () => {
     const value = 'run';
     model.changeStatusValue(inputNum, moreId, value);
     expect(model.tasks[0].string).toBe(value);
+  });
+
+  test('should mark as completed', () => {
+    model.tasks = [{
+      string: 'I am a test',
+      bool: false,
+      number: 1,
+    }];
+    const value = true;
+    const checkbox = document.querySelector('.checkbox');
+    model.toggleTodo(checkbox, value);
+    expect(model.tasks[0].bool).toBe(value);
   });
 });

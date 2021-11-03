@@ -51,7 +51,8 @@ class Control {
   }
 
   handleCheckEvent = (event) => {
-    this.model.toggleTodo(event);
+    console.log(event.target.id);
+    this.model.toggleTodo(event.target, true);
     this.checkbox.strike(event);
   }
 
@@ -62,7 +63,6 @@ class Control {
 
   handleCompleted = () => {
     this.clear = document.querySelector('.clear');
-    this.row = document.querySelectorAll('textarea');
     this.clear.addEventListener('click', () => {
       this.model.tasks.forEach((currentItem, index) => {
         if (currentItem.bool === true) {

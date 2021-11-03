@@ -33,13 +33,13 @@ export default class Model {
     }
   }
 
-  toggleTodo = (event) => {
-    this.string = event.target.nextElementSibling.firstElementChild.value;
+  toggleTodo = (target, value) => {
+    this.targetId = parseInt(target.id, 10);
     for (let i = 0; i < this.tasks.length; i += 1) {
-      if (event.target.checked === true && this.string === this.tasks[i].string) {
-        this.tasks[i].bool = true;
-      } else if (event.target.checked === false && this.string === this.tasks[i].string) {
-        this.tasks[i].bool = false;
+      if (target.checked === true && this.targetId === this.tasks[i].number) {
+        this.tasks[i].bool = value;
+      } else if (target.checked === false && this.targetId === this.tasks[i].number) {
+        this.tasks[i].bool = value;
       }
     }
     this.setStorage(this.tasks);
@@ -47,7 +47,6 @@ export default class Model {
 
   changeStatusValue(inputNum, moreId, value) {
     this.tasks.forEach((currentItem) => {
-      // this.parentId = input.parentElement.parentElement.id;
       if (parseInt(moreId, 10) === parseInt(inputNum, 10)
         && parseInt(inputNum, 10) === currentItem.number) {
         currentItem.string = value;

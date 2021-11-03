@@ -2,6 +2,7 @@ import View from '../src/view.js';
 
 import Model from '../src/model.js';
 // LocalStorage mock object
+// es-lint disable no-unused-var
 function storageMock() {
   const storage = {};
 

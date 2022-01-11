@@ -1,9 +1,6 @@
 export default class Model {
   constructor() {
-    this.tasks = JSON.parse(localStorage.getItem('todos')) || [
-      { string: 'run', bool: false, number: 1 },
-      { string: 'exercise', bool: false, number: 2 },
-    ];
+    this.tasks = JSON.parse(localStorage.getItem('todos')) || [];
   }
 
   setStorage = (todos) => {

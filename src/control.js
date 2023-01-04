@@ -13,7 +13,7 @@ class Control {
     this.view.listenToCheckBox(this.handleCheckEvent);
     this.view.editList(this.handleEditList);
     this.checkbox.getObjects(this.model.tasks);
-    this.handleCompleted();
+    this.handleCompletedListener();
   }
 
   handleChange = (tasks) => {
@@ -51,7 +51,7 @@ class Control {
   }
 
   handleCheckEvent = (event) => {
-    this.model.toggleTodo(event);
+    this.model.toggleTodo(event.target, true);
     this.checkbox.strike(event);
   }
 
@@ -60,20 +60,10 @@ class Control {
     this.view.display(this.model.tasks);
   }
 
-  handleCompleted = () => {
+  handleCompletedListener() {
     this.clear = document.querySelector('.clear');
-    this.row = document.querySelectorAll('textarea');
-    this.clear.addEventListener('click', () => {
-      this.model.tasks.forEach((currentItem, index) => {
-        if (currentItem.bool === true) {
-          this.model.tasks.splice(index, 1);
-        }
-        currentItem.number = index + 1;
-        this.model.update(this.model.tasks);
-      });
-    });
+    this.clear.addEventListener('click', this.model.handleCompleted);
   }
 }
-
+// eslint-disable-next-line no-unused-vars
 const control = new Control(new View(), new Model(), new Checkbox());
-control.handleCompleted();

@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 export default class View {
   constructor() {
     this.list = document.querySelector('.items');
@@ -12,13 +13,12 @@ export default class View {
         this.div = document.createElement('div');
         this.div.classList.add('row');
         this.div.setAttribute('id', `${this.number}`);
-
+        this.number += 1;
         this.checkbox = document.createElement('input');
         this.checkbox.setAttribute('type', 'checkbox');
         this.checkbox.classList.add('no-fluid');
         this.checkbox.classList.add('click');
         this.checkbox.classList.add('checkbox');
-        this.checkbox.id = `${this.number}`;
         this.checkbox.checked = currentItem.bool;
 
         this.rowForm = document.createElement('form');
@@ -39,10 +39,8 @@ export default class View {
 
         this.more = document.createElement('span');
         this.more.classList = 'more';
-        this.more.setAttribute('id', `${this.number}`);
         this.more.dataset.data = 'rmv';
         this.more.innerHTML = '&#65049;';
-        this.number += 1;
 
         this.bin = document.createElement('span');
         this.bin.innerHTML = '&#128465;';
@@ -57,47 +55,5 @@ export default class View {
       });
       this.list.append(this.fragment);
     }
-  }
-
-  display = (tasks) => {
-    this.createElements(tasks);
-  }
-
-  getSearchValue = (handler) => {
-    this.form = document.querySelector('form');
-    this.search = document.querySelector('.search');
-    this.form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      handler(this.search);
-      this.search.value = '';
-    });
-  }
-
-  listenToCheckBox = (handler) => {
-    this.body = document.querySelector('body');
-    this.body.addEventListener('change', (event) => ((event.target.type === 'checkbox') ? handler(event) : ' '));
-  }
-
-  getRemoveBtn = (handler) => {
-    this.removeBtn = document.querySelectorAll('.bin');
-    this.removeBtn.forEach(() => {
-      document.addEventListener('click', (event) => {
-        if (event.target.id === 'bin') {
-          handler(event);
-        }
-      });
-    });
-  }
-
-  editList(handler) {
-    this.more = document.querySelectorAll('.more');
-    this.body = document.querySelector('body');
-    this.more.forEach((currentItem) => {
-      this.body.addEventListener('click', (event) => {
-        this.data = currentItem.dataset.data;
-        this.clickedData = event.target.dataset.data;
-        return (this.data === this.clickedData) ? handler(event) : '';
-      });
-    });
   }
 }

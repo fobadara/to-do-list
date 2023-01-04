@@ -1,6 +1,6 @@
 import './style.css';
-import View from './view.js';
 import Model from './model.js';
+import View from './view.js';
 import Checkbox from './checkbox.js';
 
 class Control {
@@ -8,13 +8,12 @@ class Control {
     this.model = model;
     this.view = view;
     this.checkbox = checkbox;
-    this.model.bindChange(this.handleChange);
     this.handleChange(this.model.tasks);
     this.view.getSearchValue(this.handleAddEvent);
     this.view.listenToCheckBox(this.handleCheckEvent);
     this.view.editList(this.handleEditList);
     this.checkbox.getObjects(this.model.tasks);
-    this.handleCompleted();
+    this.handleCompletedListener();
   }
 
   handleChange = (tasks) => {
@@ -28,6 +27,7 @@ class Control {
 
   handleEditList = (event) => {
     event.target.style.display = 'none';
+    this.moreId = event.target.id;
     this.bin = event.target.nextElementSibling;
     this.bin.style.display = 'block';
 
@@ -44,36 +44,26 @@ class Control {
         event.preventDefault();
         if (this.textarea.value) {
           this.model.changeStatusValue(this.textarea.parentElement.parentElement.id,
-            this.textarea, this.textarea.value);
+            this.moreId, this.textarea.value);
         }
       }
     });
   }
 
   handleCheckEvent = (event) => {
-    this.model.toggleTodo(event);
+    this.model.toggleTodo(event.target, true);
     this.checkbox.strike(event);
   }
 
   passRemoveBtn = (event) => {
-    this.model.removeTodo(event);
+    this.model.removeTodo(event.target);
     this.view.display(this.model.tasks);
   }
 
-  handleCompleted = () => {
+  handleCompletedListener() {
     this.clear = document.querySelector('.clear');
-    this.row = document.querySelectorAll('textarea');
-    this.clear.addEventListener('click', () => {
-      this.model.tasks.forEach((currentItem, index) => {
-        if (currentItem.bool === true) {
-          this.model.tasks.splice(index, 1);
-        }
-        currentItem.number = index + 1;
-        this.model.update(this.model.tasks);
-      });
-    });
+    this.clear.addEventListener('click', this.model.handleCompleted);
   }
 }
-
+// eslint-disable-next-line no-unused-vars
 const control = new Control(new View(), new Model(), new Checkbox());
-control.handleCompleted();

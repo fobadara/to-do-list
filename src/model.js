@@ -1,5 +1,8 @@
+import View from './view.js';
+
 export default class Model {
   constructor() {
+    this.view = new View();
     this.tasks = JSON.parse(localStorage.getItem('todos')) || [];
   }
 
@@ -7,12 +10,8 @@ export default class Model {
     localStorage.setItem('todos', JSON.stringify(todos));
   }
 
-  bindChange = (callback) => {
-    this.change = callback;
-  }
-
   update(tasks) {
-    this.change(tasks);
+    this.view.display(this.tasks);
     this.setStorage(tasks);
   }
 
@@ -34,22 +33,21 @@ export default class Model {
     }
   }
 
-  toggleTodo = (event) => {
-    this.string = event.target.nextElementSibling.firstElementChild.value;
+  toggleTodo = (target, value) => {
+    this.targetId = parseInt(target.id, 10);
     for (let i = 0; i < this.tasks.length; i += 1) {
-      if (event.target.checked === true && this.string === this.tasks[i].string) {
-        this.tasks[i].bool = true;
-      } else if (event.target.checked === false && this.string === this.tasks[i].string) {
-        this.tasks[i].bool = false;
+      if (target.checked === true && this.targetId === this.tasks[i].number) {
+        this.tasks[i].bool = value;
+      } else if (target.checked === false && this.targetId === this.tasks[i].number) {
+        this.tasks[i].bool = value;
       }
     }
     this.setStorage(this.tasks);
   }
 
-  changeStatusValue(inputNum, input, value) {
+  changeStatusValue(inputNum, moreId, value) {
     this.tasks.forEach((currentItem) => {
-      this.parentId = input.parentElement.parentElement.id;
-      if (parseInt(this.parentId, 10) === parseInt(inputNum, 10)
+      if (parseInt(moreId, 10) === parseInt(inputNum, 10)
         && parseInt(inputNum, 10) === currentItem.number) {
         currentItem.string = value;
       }
@@ -57,11 +55,25 @@ export default class Model {
     this.update(this.tasks);
   }
 
-  removeTodo(event) {
-    this.parent = event.target.parentElement;
+  removeTodo(target) {
+    this.parent = target.parentElement;
     this.string = this.parent.firstElementChild.nextElementSibling.firstElementChild.value;
+    this.row = document.querySelector('.row');
     this.tasks.forEach((currentItem, index) => {
       if (this.string === currentItem.string) {
+        this.tasks.splice(index, 1);
+      }
+      this.row.remove();
+      currentItem.number = index + 1;
+      this.update(this.tasks);
+    });
+    this.row.remove();
+  }
+
+  handleCompleted = () => {
+    // this.clear.addEventListener('click', () => {
+    this.tasks.forEach((currentItem, index) => {
+      if (currentItem.bool === true) {
         this.tasks.splice(index, 1);
       }
       currentItem.number = index + 1;
